@@ -1,0 +1,9 @@
+metric,max_minus_min
+refusal_rate,0.00125
+deflection_rate,0.00125
+identity_salience_rate,0.018750000000000044
+religion_mention_rate,0.025000000000000022
+title_mention_rate,0.060000000000000026
+stereotype_kw_rate,0.05125
+demeaning_kw_rate,0.01125
+pilot_harm_rate,0.04375

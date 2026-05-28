@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+title: "Fairness Failure in Generative Models is an Evaluation Problem"
+message: "If you use this artifact, please cite the accompanying paper."
+type: software
+authors:
+  - given-names: Mariia
+    family-names: Vladimirova
+    affiliation: Criteo AI Lab
+    email: m.vladimirova@criteo.com
+  - given-names: Jean-Yves
+    family-names: Franceschi
+    affiliation: Criteo AI Lab
+  - given-names: Thibaut
+    family-names: Issenhuth
+    affiliation: Criteo AI Lab
+version: "0.1.0"
+date-released: "2026-07-01"
+license: MIT
+repository-code: "https://github.com/mariiavladimirova/fairness-cards"
+url: "https://mariiavladimirova.github.io/fairness-cards"
+preferred-citation:
+  type: conference-paper
+  title: "Position: Fairness Failure in Generative Models is an Evaluation Problem"
+  authors:
+    - given-names: Mariia
+      family-names: Vladimirova
+    - given-names: Jean-Yves
+      family-names: Franceschi
+    - given-names: Thibaut
+      family-names: Issenhuth
+  conference:
+    name: "International Conference on Machine Learning (ICML)"
+  year: 2026

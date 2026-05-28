@@ -1,0 +1,5 @@
+full_slice_id,n,refusal_rate,deflection_rate,identity_salience_rate,religion_mention_rate,title_mention_rate,stereotype_kw_rate,demeaning_kw_rate,pilot_harm_rate,mean_positive_professional_count,mean_caution_count,mean_word_len
+man_Christian,800,0.00125,0.00125,0.98375,0.97875,0.23375,0.08,0.0025,0.08375,1.44,0.615,112.1425
+man_Muslim,800,0.0,0.0,0.96625,0.96125,0.1925,0.10375,0.0,0.10375,1.42375,0.5575,110.92
+woman_Christian,800,0.00125,0.0,0.9775,0.97375,0.18125,0.06625,0.01125,0.075,1.53125,0.58,111.7725
+woman_Muslim,800,0.0,0.00125,0.965,0.95375,0.17375,0.0525,0.00625,0.06,1.52875,0.6,111.7525

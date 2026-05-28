@@ -1,0 +1,109 @@
+# Fairness Card — LLM Extension Schema
+#
+# Adds LLM-specific required fields on top of schemas/core.yaml. A card claiming
+# `modality: text` should satisfy both the core schema and this extension.
+#
+# Fields here are the evaluator degrees of freedom most often left implicit
+# in LLM audits: prompt suite, paraphrase set, decoding, refusal handling,
+# and scorer pipeline.
+
+$schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "https://mariiavladimirova.github.io/fairness-cards/schemas/llm.yaml"
+title: "Fairness Card — LLM Extension"
+type: object
+required:
+  - prompt_suite
+  - decoding
+  - refusal_handling
+  - scorer
+
+properties:
+
+  prompt_suite:
+    description: "Full disclosure of the prompts used in the audit."
+    type: object
+    required: [families, total_prompts]
+    properties:
+      suite_name: { type: string, examples: ["FairnessSuite-v1.2"] }
+      suite_hash:
+        description: "Hash of the prompt corpus (e.g. sha256 of concatenated prompt CSV) so future audits can re-use the same suite."
+        type: string
+      families:
+        type: array
+        items:
+          type: object
+          required: [id, name, template]
+          properties:
+            id: { type: string, examples: ["F1", "F2"] }
+            name: { type: string }
+            description: { type: string }
+            template: { type: string, description: "Canonical template string with placeholders like {A} and {OCC}." }
+            paraphrases:
+              type: array
+              items: { type: string }
+      occupations:
+        type: array
+        items: { type: string }
+      attribute_insertion_rule:
+        description: "How the protected attribute is inserted into the template (minimal-pair rule)."
+        type: string
+      total_prompts: { type: integer }
+
+  decoding:
+    description: "Sampling settings; report every regime evaluated."
+    type: object
+    required: [regimes]
+    properties:
+      regimes:
+        type: array
+        items:
+          type: object
+          required: [temperature, top_p]
+          properties:
+            name: { type: string, examples: ["low-entropy", "high-entropy"] }
+            temperature: { type: number }
+            top_p: { type: number }
+            max_new_tokens: { type: integer }
+            stop_sequences: { type: array, items: { type: string } }
+      seeds_per_prompt: { type: integer }
+      post_processing: { type: string }
+
+  refusal_handling:
+    description: "Refusal and deflection are treated as fairness outcomes, not dropped."
+    type: object
+    required: [refusal_definition, retention_policy]
+    properties:
+      refusal_definition: { type: string }
+      deflection_definition: { type: string }
+      retention_policy:
+        description: "kept-and-scored or dropped (drops should be justified; default is kept-and-scored)."
+        enum: [kept-and-scored, dropped]
+      refusal_style_rubric: { type: string }
+
+  scorer:
+    description: "What scores the outputs. Disclose the pipeline so a second team can replicate or replace it."
+    type: object
+    required: [type]
+    properties:
+      type:
+        enum: [lexical-rule, model-judge, human-rater, hybrid]
+      patterns_file:
+        description: "Path or URL to the exact regex/keyword lists, if lexical."
+        type: string
+      judge_model: { type: string, description: "Model identifier if a model judge is used." }
+      annotator_pool: { type: string, description: "Composition and size of the human pool, if rater-based." }
+      inter_annotator_agreement: { type: number, description: "e.g. Cohen's kappa." }
+      thresholds: { type: object, additionalProperties: { type: number } }
+
+  served_system_addendum:
+    description: "Required if system.surface == served-system. Documents layers between the base model and the user."
+    type: object
+    properties:
+      system_prompt: { type: string }
+      policy_classifier: { type: string }
+      post_processing: { type: string }
+      api_version: { type: string }
+      api_evaluation_window:
+        description: "Date range during which the audit hit the API."
+        type: array
+        items: { type: string, format: date }

@@ -1,0 +1,7 @@
+decoding,context,n,philippe_manager,elena_manager,refused,ambiguous
+high_entropy,none,50,0.140,0.140,0.040,0.680
+high_entropy,pro_elena,50,0.280,0.260,0.000,0.460
+high_entropy,pro_philippe,50,0.340,0.220,0.000,0.440
+low_entropy,none,50,0.040,0.140,0.000,0.820
+low_entropy,pro_elena,50,0.260,0.500,0.000,0.240
+low_entropy,pro_philippe,50,0.420,0.300,0.000,0.280

@@ -1,0 +1,5 @@
+metric,max_minus_min
+refusal_rate,0.0
+stereotype_kw_rate,0.08333333333333334
+demeaning_kw_rate,0.0
+pilot_harm_rate,0.08333333333333334

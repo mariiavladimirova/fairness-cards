@@ -1,0 +1,236 @@
+body {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+html {
+  overflow-x: clip;
+}
+
+.footer .icon-link {
+  font-size: 25px;
+  color: #000;
+}
+
+.link-block a {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.publication-title {
+  font-family: 'Google Sans', sans-serif;
+}
+
+.publication-authors {
+  font-family: 'Google Sans', sans-serif;
+}
+
+.publication-authors a {
+  color: hsl(204, 86%, 53%) !important;
+}
+
+.publication-authors a:hover {
+  text-decoration: underline;
+}
+
+.author-block {
+  display: inline-block;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ── Comparison table ── */
+
+.comparison-table-wrap {
+  width: 100%;
+  max-width: 100%;
+}
+
+.comparison-table-caption {
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: #363636;
+  margin-bottom: 1.2rem;
+  text-align: justify;
+}
+
+.comparison-table {
+  font-size: 0.88rem;
+  line-height: 1.4;
+  border-collapse: collapse;
+}
+
+.comparison-table thead th {
+  background: #f0f4fa;
+  font-weight: 700;
+  text-align: center;
+  vertical-align: bottom;
+  font-size: 0.88rem;
+  padding: 0.75rem 0.65rem;
+  border-bottom: 2px solid #3273dc;
+  color: #222;
+}
+
+.comparison-table tbody td {
+  vertical-align: top;
+  padding: 0.6rem 0.65rem;
+}
+
+.comparison-table__dim-col {
+  font-weight: 600;
+  white-space: nowrap;
+  background: #f8f9fb;
+  color: #222;
+}
+
+.comparison-table thead .comparison-table__dim-col {
+  text-align: left;
+}
+
+.comparison-table__ours-col {
+  background: rgba(50, 115, 220, 0.06);
+  font-weight: 500;
+}
+
+.comparison-table thead .comparison-table__ours-col {
+  background: rgba(50, 115, 220, 0.12);
+  color: #1a3a6e;
+}
+
+.comparison-table__cite {
+  font-weight: 400;
+  font-size: 0.78rem;
+  color: #666;
+}
+
+.comparison-table tbody tr:hover td {
+  background: #f5f8fd;
+}
+
+.comparison-table tbody tr:hover .comparison-table__ours-col {
+  background: rgba(50, 115, 220, 0.10);
+}
+
+.comparison-table tbody tr:hover .comparison-table__dim-col {
+  background: #eef1f6;
+}
+
+@media screen and (max-width: 1023px) {
+  .comparison-table {
+    font-size: 0.78rem;
+  }
+
+  .comparison-table thead th {
+    font-size: 0.78rem;
+    padding: 0.55rem 0.4rem;
+  }
+
+  .comparison-table tbody td {
+    padding: 0.45rem 0.4rem;
+  }
+
+  .comparison-table__dim-col {
+    white-space: normal;
+  }
+}
+
+/* ── Data tables (numeric result tables) ── */
+
+.data-table-wrap {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 2.5rem;
+}
+
+.data-table-wrap .table-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.data-table-caption {
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: #363636;
+  margin-bottom: 1.2rem;
+  text-align: justify;
+}
+
+.data-table {
+  font-size: 0.78rem;
+  line-height: 1.35;
+  border-collapse: collapse;
+}
+
+.data-table thead th {
+  background: #f0f4fa;
+  font-weight: 700;
+  text-align: center;
+  vertical-align: bottom;
+  font-size: 0.74rem;
+  padding: 0.5rem 0.35rem;
+  border-bottom: 2px solid #3273dc;
+  color: #222;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+
+.data-table tbody td {
+  vertical-align: middle;
+  padding: 0.35rem 0.35rem;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.data-table tbody td:first-child {
+  text-align: left;
+  font-weight: 600;
+  background: #f8f9fb;
+  white-space: nowrap;
+}
+
+.data-table tbody tr:hover td {
+  background: #f5f8fd;
+}
+
+.data-table tbody tr:hover td:first-child {
+  background: #eef1f6;
+}
+
+
+.data-table--uniform tbody td:first-child {
+  text-align: right;
+  font-weight: normal;
+  background: none;
+  white-space: normal;
+}
+
+.data-table--uniform tbody tr:hover td:first-child {
+  background: #f5f8fd;
+}
+
+@media screen and (max-width: 1023px) {
+  .data-table {
+    font-size: 0.72rem;
+  }
+
+  .data-table thead th {
+    font-size: 0.70rem;
+    padding: 0.4rem 0.3rem;
+  }
+
+  .data-table tbody td {
+    padding: 0.35rem 0.3rem;
+  }
+}

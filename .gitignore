@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Environments
+.venv/
+env/
+venv/
+.env
+
+# Build artifacts
+build/
+dist/
+
+# Editor
+.vscode/
+.idea/
+.DS_Store
+
+# Local model checkpoints (large; user downloads separately)
+models/
+
+# Large run outputs — ship as release attachment, not in git
+runs/*.jsonl
+runs/*.parquet
+
+# Per-row scored outputs — regenerable from runs/, kept lean in git
+analysis/**/scored_outputs.csv
+analysis/**/scored_outputs.parquet
+
+# Exploratory in-browser Fairness Card builder — not part of the public release.
+site/

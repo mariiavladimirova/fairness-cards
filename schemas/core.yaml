@@ -1,0 +1,147 @@
+# Fairness Card — Core Schema (modality-agnostic)
+#
+# Minimum reporting fields for a Fairness Card. Modality-specific extensions
+# (e.g. schemas/llm.yaml) add further required fields without contradicting these.
+#
+# Reference: Vladimirova, Franceschi, Issenhuth.
+# "Position: Fairness Failure in Generative Models is an Evaluation Problem."
+# ICML 2026.
+
+$schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "https://mariiavladimirova.github.io/fairness-cards/schemas/core.yaml"
+title: "Fairness Card — Core"
+type: object
+required:
+  - card_version
+  - modality
+  - system
+  - intended_use
+  - fairness_scope
+  - protected_attributes
+  - metrics
+  - decision_rules
+  - reproducibility
+
+properties:
+
+  card_version:
+    description: "Version of the Fairness Card itself (semver). Bump when fields are added/removed."
+    type: string
+    pattern: "^[0-9]+\\.[0-9]+(\\.[0-9]+)?$"
+
+  modality:
+    description: "Primary output modality the card describes."
+    enum: [text, image, audio, video, multimodal]
+
+  evaluation_date:
+    description: "ISO date the audit was run (YYYY-MM-DD)."
+    type: string
+    format: date
+
+  authors:
+    description: "Authors of the card (may differ from model authors)."
+    type: array
+    items:
+      type: object
+      required: [name]
+      properties:
+        name: { type: string }
+        affiliation: { type: string }
+        email: { type: string, format: email }
+        url: { type: string, format: uri }
+
+  system:
+    description: "What is being audited."
+    type: object
+    required: [name, version]
+    properties:
+      name: { type: string }
+      version: { type: string }
+      surface:
+        description: "base-model = weights-only; served-system = wrapped with prompts/policies/post-processing."
+        enum: [base-model, served-system]
+      checkpoint_url: { type: string, format: uri }
+      precision: { type: string, examples: ["bfloat16", "fp16", "fp32", "int8"] }
+      known_layers:
+        description: "For served-system surfaces, list the layers that can affect fairness (system prompt, policy classifier, post-processing)."
+        type: array
+        items: { type: string }
+      notes: { type: string }
+
+  intended_use:
+    description: "What the audit's conclusions cover and don't cover."
+    type: object
+    required: [in_scope, out_of_scope]
+    properties:
+      in_scope:
+        type: array
+        items: { type: string }
+      out_of_scope:
+        type: array
+        items: { type: string }
+
+  fairness_scope:
+    description: "Harm model the audit captures."
+    type: object
+    properties:
+      representational_harms:
+        type: array
+        items: { type: string }
+      access_harms:
+        type: array
+        items: { type: string }
+      allocative_harms:
+        type: array
+        items: { type: string }
+      excluded:
+        description: "Harms explicitly out-of-scope for this card."
+        type: array
+        items: { type: string }
+
+  protected_attributes:
+    description: "Slices the audit varies."
+    type: object
+    required: [slices, operationalisation]
+    properties:
+      slices:
+        description: "Concrete intersectional slices. Use structured arrays, not free text."
+        type: array
+        items:
+          type: object
+          additionalProperties: { type: string }
+      operationalisation:
+        description: "How the attribute is encoded (e.g. 'explicit in prompt', 'inferred from name', 'image label')."
+        type: string
+
+  metrics:
+    description: "Each metric definition is its own object so it can be diffed across cards."
+    type: array
+    items:
+      type: object
+      required: [name, definition]
+      properties:
+        name: { type: string }
+        definition: { type: string }
+        threshold: { type: [number, string] }
+        unit: { type: string, examples: ["rate", "count", "score"] }
+
+  decision_rules:
+    description: "How metric values map to audit verdicts (flagged / not flagged / threshold breach)."
+    type: array
+    items:
+      type: object
+      required: [rule]
+      properties:
+        rule: { type: string }
+        rationale: { type: string }
+
+  reproducibility:
+    type: object
+    required: [code_url]
+    properties:
+      code_url: { type: string, format: uri }
+      license: { type: string }
+      data_release: { type: string }
+      seeds: { type: array, items: { type: integer } }
+      total_samples: { type: integer }
+      regen_command: { type: string, description: "One-line command to regenerate all reported numbers." }
