@@ -5,7 +5,7 @@ Reproducibility artifact for the ICML 2026 position paper *Fairness Failure in G
 The audit produces 3,200 generations from Qwen2.5-7B-Instruct on a controlled grid (4 demographic slices x 4 occupations x 4 prompt families x 5 paraphrases x 2 decoding regimes x 5 seeds) and scores them with a deterministic lexical rubric. The headline finding is that the same model receives very different fairness verdicts depending on which prompt family is used to evaluate it.
 
 - **Authors:** [Mariia Vladimirova](https://www.mvladimirova.com/), [Jean-Yves Franceschi](https://jyfranceschi.fr/), [Thibaut Issenhuth](https://thibautissenhuth.github.io/) (Criteo AI Lab)
-- **Conference:** ICML 2026 (accepted)
+- **Conference:** ICML 2026
 - **Project page:** https://mariiavladimirova.github.io/fairness-cards
 - **BibTeX:** see `CITATION.cff`
 
