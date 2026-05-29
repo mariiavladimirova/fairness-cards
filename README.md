@@ -162,7 +162,17 @@ The paper also presents two illustrative probes (Stable Diffusion image generati
 
 ## Citation
 
-Citation metadata is in `CITATION.cff` and will be filled in at publication. For now, please cite the ICML 2026 conference proceedings entry.
+```bibtex
+@inproceedings{vladimirova2026fairness,
+  title     = {Position: Fairness Failure in Generative Models is an Evaluation Problem},
+  author    = {Vladimirova, Mariia and Franceschi, Jean-Yves and Issenhuth, Thibaut},
+  booktitle = {Proceedings of the 43rd International Conference on Machine Learning},
+  publisher = {PMLR},
+  year      = {2026},
+}
+```
+
+A machine-readable `CITATION.cff` is also provided in the repo root.
 
 ## License
 
