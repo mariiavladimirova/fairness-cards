@@ -6,6 +6,8 @@ The audit produces 3,200 generations from Qwen2.5-7B-Instruct on a controlled gr
 
 - **Authors:** [Mariia Vladimirova](https://www.mvladimirova.com/), [Jean-Yves Franceschi](https://jyfranceschi.fr/), [Thibaut Issenhuth](https://thibautissenhuth.github.io/) (Criteo AI Lab)
 - **Conference:** ICML 2026
+- **Paper (ICML):** https://icml.cc/virtual/2026/poster/67230
+- **Paper (HAL):** https://hal.science/hal-05640884
 - **Project page:** https://mariiavladimirova.github.io/fairness-cards
 - **BibTeX:** see `CITATION.cff`
 
