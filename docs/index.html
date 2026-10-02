@@ -160,6 +160,10 @@
               <span class="icon"><i class="fab fa-github"></i></span>
               <span>Code &amp; data</span>
             </a>
+            <a href="./static/poster/fairness_cards_poster.pdf" class="button is-dark is-rounded">
+              <span class="icon"><i class="far fa-image"></i></span>
+              <span>Poster</span>
+            </a>
             <a href="#card" class="button is-dark is-rounded">
               <span class="icon"><i class="far fa-file-alt"></i></span>
               <span>Example card</span>
@@ -196,6 +200,24 @@
       <img src="./static/images/teaser.png" alt="Slice disparities vs prompt-family sensitivity for Qwen2.5-7B-Instruct.">
       <p class="teaser-caption">
         Same model (Qwen2.5-7B-Instruct), same scorer, same slices. <b>Left:</b> aggregated max-minus-min disparity across the four demographic slices, per metric &mdash; every disparity sits at or below a 5% line. <b>Right:</b> resolved by prompt family, worst-slice stereotype-keyword rate crosses the same 5% line on every slice under F2 (story continuation) and on no slice under F4 (HR memo). The verdict is set by the evaluator's protocol, not by the model.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── Poster ── -->
+<section class="section" id="poster" style="padding-top: 0;">
+  <div class="container is-max-widescreen">
+    <h2 class="section-heading has-text-centered">Poster</h2>
+    <div class="teaser-figure">
+      <object data="./static/poster/fairness_cards_poster.pdf#view=Fit&amp;toolbar=0" type="application/pdf" style="width: 100%; aspect-ratio: 5 / 3; border: 1px solid #ddd;">
+        <a href="./static/poster/fairness_cards_poster.pdf">
+          <img src="./static/poster/fairness_cards_poster.jpg" alt="ICML 2026 poster: Fairness Failure in Generative Models is an Evaluation Problem — the case for Fairness Cards." loading="lazy">
+        </a>
+      </object>
+      <p class="teaser-caption">
+        ICML 2026 poster. <a href="./static/poster/fairness_cards_poster.pdf">Download the PDF</a>.
       </p>
     </div>
   </div>
